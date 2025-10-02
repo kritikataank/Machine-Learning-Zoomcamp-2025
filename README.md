@@ -7,9 +7,9 @@ Official course materials at [ML Zoomcamp GitHub](https://github.com/DataTalksCl
 
 ### Homework & Progress Tracker
 
-Modules Completed: `[■□□□□□□□□□] 10%` 🟩⬜⬜⬜⬜⬜⬜⬜⬜⬜ 10%
+Modules Completed: 🟩⬜⬜⬜⬜⬜⬜⬜⬜⬜ 10%
 
-Projects Completed: `[□□□□□□□□□□] 0%`
+Projects Completed: ⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜ 0%
 
 ### How to Clone this repo
 ```bash
