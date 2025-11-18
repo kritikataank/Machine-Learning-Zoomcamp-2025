@@ -39,6 +39,7 @@ Format: Each sample contains the combined text input and the target numerical sc
 | ats_score | The target variable (continuous numerical score, 0-100). |
 
 Data Accessibility:
+The source dataset is publicly available and can be loaded directly using the datasets library (as demonstrated in the notebook.ipynb):
 dataset = load_dataset("0xnbk/resume-ats-score-v1-en")
 dataset
 
@@ -51,90 +52,25 @@ We use TF-IDF (Term Frequency-Inverse Document Frequency) for feature extraction
 2. Model Selection & Evaluation
 
 We compared several models on the validation set.
-
-Model
-
-RMSE
-
-MAE
-
-Notes
-
-Baseline (TF-IDF LR)
-
-23.33
-
-18.67
-
-Initial simple linear model.
-
-Ridge Regression
-
-21.93
-
-18.46
-
-Marginal stability improvement.
-
-LightGBM (Final Model)
-
-19.72
-
-15.63
-
-Selected for superior performance and speed.
-
 The LightGBM model achieved the best accuracy, resulting in a 16.3% reduction in MAE over the baseline, making it the optimal choice for this deployment.
 
 🚀 Deployment and API Instructions
 
 The final model is served using a Flask API and containerized with Docker, ensuring easy deployment and reproducibility.
 
-Required Files
+train.py - Script to train and save the final LightGBM model assets.
+predict.py - Flask API script to handle real-time /predict requests.
+requirements.txt - List of all Python dependencies (flask, lightgbm, joblib, etc.).
 
-The repository should contain the following executable and asset files:
-
-File Name
-
-Purpose
-
-Requirement Fulfilled
-
-train.py
-
-Script to train and save the final LightGBM model assets.
-
-Training Script
-
-predict.py
-
-Flask API script to handle real-time /predict requests.
-
-Prediction Script (Web Service)
-
-requirements.txt
-
-List of all Python dependencies (flask, lightgbm, joblib, etc.).
-
-Dependencies
-
-Dockerfile
-
-Instructions to build the containerized service.
-
-Containerization
-
-How to Run Locally (Using Docker)
+Dependencies - Dockerfile
 
 Build the Docker Image:
 
 docker build -t ats-score-predictor .
 
-
 Run the Container:
 
 docker run -it --rm -p 9699:9699 ats-score-predictor
-
 
 The service will start on port 9699.
 
@@ -145,6 +81,5 @@ curl -X POST \
   -H "Content-Type: application/json" \
   -d '{"text": "Candidate has 5 years experience in Python and NLP. JD requires 3+ years in Python, Flask, and ML models."}' \
   http://localhost:9699/predict
-
 
 The API will respond with the predicted ats_score.
