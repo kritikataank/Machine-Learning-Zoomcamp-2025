@@ -26,7 +26,7 @@ Output: A compatibility score (e.g., 0 to 100), where a higher score indicates a
 
 The full data cleaning, exploratory data analysis (EDA), model selection, and hyperparameter search is documented in the accompanying Colab notebook.
 
-Notebook Link: [[colab notebook]](https://colab.research.google.com/drive/1ukfhg_ZHctoWxfPyX_TtN7hfWB93nYgE?usp=sharing)
+Notebook Link: [colab notebook](https://colab.research.google.com/drive/1ukfhg_ZHctoWxfPyX_TtN7hfWB93nYgE?usp=sharing)
 
 📦 Dataset
 
@@ -40,9 +40,10 @@ Format: Each sample contains the combined text input and the target numerical sc
 
 Data Accessibility:
 The source dataset is publicly available and can be loaded directly using the datasets library (as demonstrated in the notebook.ipynb):
+```bash
 dataset = load_dataset("0xnbk/resume-ats-score-v1-en")
 dataset
-
+```
 🔍 Machine Learning Approach
 
 1. Feature Engineering
@@ -66,20 +67,20 @@ Dependencies - Dockerfile
 
 Build the Docker Image:
 
-docker build -t ats-score-predictor .
+```bash docker build -t ats-score-predictor . ```
 
 Run the Container:
 
-docker run -it --rm -p 9699:9699 ats-score-predictor
+```bash docker run -it --rm -p 9699:9699 ats-score-predictor ```
 
 The service will start on port 9699.
 
 Test the API Endpoint:
 Use curl to send a sample text input (combined resume and job description):
-
+```bash
 curl -X POST \
   -H "Content-Type: application/json" \
   -d '{"text": "Candidate has 5 years experience in Python and NLP. JD requires 3+ years in Python, Flask, and ML models."}' \
   http://localhost:9699/predict
-
+```
 The API will respond with the predicted ats_score.
