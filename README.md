@@ -5,12 +5,6 @@ Welcome! This repository contains **module-wise homework assignments** from the 
 The ML Zoomcamp teaches **real-world ML workflows** using Python, Pandas, Scikit-learn, XGBoost, and deployment tools.  
 Official course materials at [ML Zoomcamp GitHub](https://github.com/DataTalksClub/mlzoomcamp) and Course Website at [Course Website](https://mlzoomcamp.com/)
 
-### Homework & Progress Tracker
-
-Modules Completed: 🟩🟩⬜⬜⬜⬜⬜⬜⬜⬜ 20%
-
-Projects Completed: ⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜ 0%
-
 ### How to Clone this repo
 ```bash
 git clone https://github.com/yourusername/ml-zoomcamp-homework.git
